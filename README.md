@@ -1,5 +1,10 @@
 # cs122b-postman-tests
 
+
+# HW# DB Tests and HW# Tests
+
+HW# DB Tests fully assumes that the progrma passes all HW# Tests
+
 Currently at 248 Tests
 
 All Request Model Data Validation is done
