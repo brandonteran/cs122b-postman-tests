@@ -1,6 +1,13 @@
 # CS 122B Postman Tests
 
 
+## Enviroment
+
+Be sure to have these two variables defined in your enviroment:
+
+* host
+* port
+
 ## HW DB Tests and HW Tests - Which to use first
 
 Always run and make sure HW Base Tests fully works before testing HW DB Tests
