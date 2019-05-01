@@ -11,14 +11,19 @@ HW DB Tests fully assumes that the progrma passes all HW Base Tests
 
 Always run HW DB Clean before running the tests to ensure the database is in the correct state
 
-## Summary
+## Stats
 
-Currently at 248 Tests
+**HW4**
+**Total Base Tests:** 252
+**Total DB Tests:** 112
 
-All Request Model Data Validation is done
+**Tests Added:**
+1. Credit Card
+2. Customer
+3. Shopping Cart
+4. Order
 
-Majority of Database validation before Datbase Handling is Done
-
-  Needs Shopping Cart Exist Logic
-  
-  Shoppinbg Cart Exist Logic to be added after Database Handling Data is done
+**Tests To Be Added:**
+1. Multiple Item Shopping Cart
+2. Multiple item Order
+3. Quantity Valid
