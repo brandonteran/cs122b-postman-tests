@@ -9,6 +9,73 @@
 			"name": "Shopping Cart DB Test",
 			"item": [
 				{
+					"name": "Retrieve - Item Not Exist (Case 312) - Before Insert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(312);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Shopping item does not exist\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"cart",
+								"retrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Insert - Success (Case 3100)",
 					"event": [
 						{
@@ -76,83 +143,7 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve - Success (Case 3130) - After Insert",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
-								"exec": [
-									"\r",
-									"pm.test(\"Status code is 200\", () => {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response has a body in json format\", () => {\r",
-									"    pm.response.to.be.withBody;\r",
-									"    pm.response.to.be.json;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response contains an message\", () => {\r",
-									"    let jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.resultCode).eql(3130);\r",
-									"\r",
-									"    pm.expect(jsonData.message).not.eql(null);\r",
-									"    pm.expect(jsonData.message).to.contain(\"Shopping cart retrieved successfully\");\r",
-									"    \r",
-									"    pm.expect(jsonData.items).not.eql(null);\r",
-									"    pm.expect(jsonData.items[0]).not.eql(null);\r",
-									"    pm.expect(jsonData.items[0].email).not.eql(null);\r",
-									"    pm.expect(jsonData.items[0].email).to.contain(\"adah.glen.232@facebook.com\");\r",
-									"    pm.expect(jsonData.items[0].movieId).not.eql(null);\r",
-									"    pm.expect(jsonData.items[0].movieId).to.contain(\"tt0308514\");\r",
-									"    pm.expect(jsonData.items[0].quantity).not.eql(null);\r",
-									"    pm.expect(jsonData.items[0].quantity).to.eql(1);\r",
-									"    \r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\"\r\n}"
-						},
-						"url": {
-							"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
-							"protocol": "http",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"api",
-								"billing",
-								"cart",
-								"retrieve"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Insert - Duplicate (Case 311) - After Insert",
+					"name": "Insert - Duplicate (Case 311) - After Insert Copy",
 					"event": [
 						{
 							"listen": "test",
@@ -429,7 +420,7 @@
 					"response": []
 				},
 				{
-					"name": "Retrieve - Credit Card Not Exist (Case 312) - After Delete",
+					"name": "Retrieve - Item Not Exist (Case 312) - After Delete",
 					"event": [
 						{
 							"listen": "test",
@@ -624,73 +615,6 @@
 								"billing",
 								"cart",
 								"clear"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Retrieve - Credit Card Not Exist (Case 312) - After Clear",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
-								"exec": [
-									"\r",
-									"pm.test(\"Status code is 200\", () => {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response has a body in json format\", () => {\r",
-									"    pm.response.to.be.withBody;\r",
-									"    pm.response.to.be.json;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response contains an message\", () => {\r",
-									"    let jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.resultCode).eql(312);\r",
-									"\r",
-									"    pm.expect(jsonData.message).not.eql(null);\r",
-									"    pm.expect(jsonData.message).to.contain(\"Shopping item does not exist\");\r",
-									"    \r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 200ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\"\r\n}"
-						},
-						"url": {
-							"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
-							"protocol": "http",
-							"host": [
-								"{{host}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"api",
-								"billing",
-								"cart",
-								"retrieve"
 							]
 						}
 					},
@@ -1618,6 +1542,422 @@
 								"api",
 								"billing",
 								"customer",
+								"retrieve"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order DB Test",
+			"item": [
+				{
+					"name": "Place - Cart Not Found (Case 341)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(341);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Shopping cart for this customer not found\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/order/place",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"order",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Shopping Cart] Insert - Success (Case 3100)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3100);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Shopping cart item inserted successfully\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/cart/insert",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"cart",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place - Success (Case 3400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3400);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Order placed successfully\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/order/place",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"order",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place - Cart Not Found (Case 341) - After Place",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(341);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Shopping cart for this customer not found\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/order/place",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"order",
+								"place"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[Shopping Cart Retrieve] - Item Not Exist (Case 312) - After Place",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(312);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Shopping item does not exist\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"cart",
+								"retrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve - Success (Case 3410)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3410);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Orders retrieved successfully\");\r",
+									"    \r",
+									"    pm.expect(jsonData.items).not.eql(null);\r",
+									"    pm.expect(jsonData.items[0]).not.eql(null);\r",
+									"    pm.expect(jsonData.items[0].email).not.eql(null);\r",
+									"    pm.expect(jsonData.items[0].email).to.contain(\"adah.glen.232@facebook.com\");\r",
+									"    pm.expect(jsonData.items[0].movieId).not.eql(null);\r",
+									"    pm.expect(jsonData.items[0].movieId).to.contain(\"tt0308514\");\r",
+									"    pm.expect(jsonData.items[0].quantity).not.eql(null);\r",
+									"    pm.expect(jsonData.items[0].quantity).to.eql(1);\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/order/retrieve",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"order",
 								"retrieve"
 							]
 						}
