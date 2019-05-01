@@ -1,0 +1,3899 @@
+{
+	"info": {
+		"_postman_id": "528a67ec-3250-473f-ba2e-269221eb39ec",
+		"name": "HW4 Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "card",
+			"item": [
+				{
+					"name": "card validation",
+					"item": [
+						{
+							"name": "Expiration Value Invalid",
+							"item": [
+								{
+									"name": "Update - Invalid Expiration value (Case 323)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(323);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"expiration has invalid value\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"9900028611992862486\",\r\n    \"firstName\": \"my New First Name\",\r\n    \"lastName\": \"my New Last Name\",\r\n    \"expiration\": \"2000-12-31\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"update"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Credit card ID Value",
+							"item": [
+								{
+									"name": "Insert - Invalid Credit card ID value (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(322);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid value\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"A999888877776666123\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Invalid Credit card ID value (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(322);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid value\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"A999888877776666123\",\r\n    \"firstName\": \"my New First Name\",\r\n    \"lastName\": \"my New Last Name\",\r\n    \"expiration\": \"2024-12-31\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - Invalid Credit card ID value (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(322);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid value\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"A999888877776666123\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - Invalid Credit card ID value (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(322);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid value\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"A999888877776666123\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Credit card ID Length",
+							"item": [
+								{
+									"name": "Insert - Invalid Credit card ID length (Case 321)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(321);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"999888877776666123\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Invalid Credit card ID length (Case 321)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(321);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"999888877776666123\",\r\n    \"firstName\": \"my New First Name\",\r\n    \"lastName\": \"my New Last Name\",\r\n    \"expiration\": \"2024-12-31\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - Invalid Credit card ID length (Case 321)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(321);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"999888877776666123\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - Invalid Credit card ID length (Case 321)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(321);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"999888877776666123\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "JSON Parse",
+							"item": [
+								{
+									"name": "Insert - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"id\": \"9999888877776666123\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"id\": \"9999888877776666123\",\r\n    \"firstName\": \"my New First Name\",\r\n    \"lastName\": \"my New Last Name\",\r\n    \"expiration\": \"2024-12-31\"\r\n}\r\n\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"id\": \"9999888877776666123\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"id\": \"9999888877776666123\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "JSON Mapping",
+							"item": [
+								{
+									"name": "Insert - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"wrongAttribue\": \"9999888877776666123\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"wrongAttribue\": \"9999888877776666123\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Duplicate / Not Exist Copy",
+							"item": [
+								{
+									"name": "Insert - Duplicate Insertion (Case 325)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(325);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Duplicate insertion\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"9900028611992862486\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Credit Card Not Exist (Case 324)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(324);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card does not exist\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"0123456789123456789\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - Credit Card Not Exist (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(324);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card does not exist\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"0123456789123456789\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - Credit Card Not Exist (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(324);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card does not exist\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"0123456789123456789\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"card",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "cart validation",
+					"item": [
+						{
+							"name": "Email Format",
+							"item": [
+								{
+									"name": "Insert - Invalid Email Format (Case -11)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-11);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid format\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"@uci.edu\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 2\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Invalid Email Format (Case -11)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-11);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid format\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"@uci.edu\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 5\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - Invalid Email Format (Case -11)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-11);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid format\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"@uci.edu\",\r\n   \"movieId\": \"tt0308514\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - Invalid Email Format (Case -11)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-11);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid format\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Clear - Invalid Email Format (Case -11)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-11);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid format\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/clear",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"clear"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Email Length",
+							"item": [
+								{
+									"name": "Insert - Invalid Email Length (Case -10)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-10);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"abcdefghijklmonpqrstuvwxyzabcdefghijklmonpqrstuvwxyz@uci.edu\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 2\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Invalid Email Length (Case -10)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-10);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"abcdefghijklmonpqrstuvwxyzabcdefghijklmonpqrstuvwxyz@uci.edu\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 5\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - Invalid Email Length (Case -10)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-10);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"abcdefghijklmonpqrstuvwxyzabcdefghijklmonpqrstuvwxyz@uci.edu\",\r\n   \"movieId\": \"tt0308514\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - Invalid Email Length (Case -10)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-10);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"abcdefghijklmonpqrstuvwxyzabcdefghijklmonpqrstuvwxyz@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Clear - Invalid Length (Case -10)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-10);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Email address has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"email\": \"abcdefghijklmonpqrstuvwxyzabcdefghijklmonpqrstuvwxyz@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/clear",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"clear"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "JSON Parse",
+							"item": [
+								{
+									"name": "Insert - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 2\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{  \r\n   \"email\": \"peteranteater@uci.edu\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 5\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{  \r\n   \"email\": \"peteranteater@uci.edu\",\r\n   \"movieId\": \"tt0308514\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{  \r\n   \"email\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Clear - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{  \r\n   \"email\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/clear",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"clear"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "JSON Mapping",
+							"item": [
+								{
+									"name": "Insert - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 2\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 5\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"movieId\": \"tt0308514\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/delete",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"delete"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Clear - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \r\n   \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/cart/clear",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"cart",
+												"clear"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "(IP) Duplicate / Not Exist",
+							"item": [],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "customer validation",
+					"item": [
+						{
+							"name": "Credit card ID Value",
+							"item": [
+								{
+									"name": "Insert - Invalid Credit card ID value (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(322);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid value\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"A999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Invalid Credit card ID value (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(322);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid value\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"A999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"update"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Credit card ID Not Found",
+							"item": [
+								{
+									"name": "Insert - Invalid Credit card ID value (Case 331)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(331);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID not found\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"0123456789123456789\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Invalid Credit card ID value (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(331);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID not found\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"0123456789123456789\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"update"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Credit card ID Length",
+							"item": [
+								{
+									"name": "Insert - Invalid Credit card ID length (Case 321)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(321);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Invalid Credit card ID length (Case 321)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(321);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Credit card ID has invalid length\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"update"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "JSON Parse",
+							"item": [
+								{
+									"name": "Insert - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"9999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer New First Name\",\r\n    \"lastName\": \"customer New Last Name\",\r\n    \"ccId\": \"1111222233334444789\",\r\n    \"address\": \"6789, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"email\": \"peteranteater@uci.edu\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "JSON Mapping",
+							"item": [
+								{
+									"name": "Insert - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"9999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"firstName\": \"customer New First Name\",\r\n    \"lastName\": \"customer New Last Name\",\r\n    \"ccId\": \"1111222233334444789\",\r\n    \"address\": \"6789, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"wrongAttribue\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Duplicate / Not Exist Copy Copy",
+							"item": [
+								{
+									"name": "Insert - Duplicate Insertion (Case 333)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(333);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Duplicate insertion\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"adah.glen.232@facebook.com\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"9900028611992862486\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"insert"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update - Customer Not Exist (Case 332)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(332);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Customer does not exist\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"notExistEmail@notreal.com\",\r\n    \"firstName\": \"customer New First Name\",\r\n    \"lastName\": \"customer New Last Name\",\r\n    \"ccId\": \"9900028611992862486\",\r\n    \"address\": \"6789, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"update"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - Customer Not Exist  (Case 322)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(332);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Customer does not exist\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"notExistEmail@notreal.com\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/customer/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"customer",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": []
+		}
+	]
+}
