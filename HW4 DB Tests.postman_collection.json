@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "894e147f-d749-4167-a73c-29b586bb33bc",
+		"name": "HW4 DB Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Credit Card DB Test",
+			"item": [
+				{
+					"name": "Insert - Success (Case 3200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3200);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Credit card inserted successfully\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"9876543210987654321\",\r\n    \"firstName\": \"Test First\",\r\n    \"lastName\": \"Test Last\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"card",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve - Success (Case 3230) - After Insert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3230);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Credit card retrieved successfully\");\r",
+									"    \r",
+									"    \r",
+									"    pm.expect(jsonData.creditcard).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.id).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.id).to.contain(\"9876543210987654321\");\r",
+									"    pm.expect(jsonData.creditcard.firstName).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.firstName).to.contain(\"Test First\");\r",
+									"    pm.expect(jsonData.creditcard.lastName).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.lastName).to.contain(\"Test Last\");\r",
+									"    pm.expect(jsonData.creditcard.expiration).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.expiration).to.eql(1643673600000);\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"9876543210987654321\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"card",
+								"retrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Success (Case 3210)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3210);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Credit card updated successfully\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"9876543210987654321\",\r\n    \"firstName\": \"Updated Test First\",\r\n    \"lastName\": \"Updated Test Last\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"card",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve - Success (Case 3230) - After Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3230);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Credit card retrieved successfully\");\r",
+									"    \r",
+									"    pm.expect(jsonData.creditcard).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.id).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.id).to.contain(\"9876543210987654321\");\r",
+									"    pm.expect(jsonData.creditcard.firstName).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.firstName).to.contain(\"Updated Test First\");\r",
+									"    pm.expect(jsonData.creditcard.lastName).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.lastName).to.contain(\"Updated Test Last\");\r",
+									"    pm.expect(jsonData.creditcard.expiration).not.eql(null);\r",
+									"    pm.expect(jsonData.creditcard.expiration).to.eql(1643673600000);\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"9876543210987654321\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"card",
+								"retrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Success (Case 3220)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3220);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Credit card deleted successfully\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"9876543210987654321\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"card",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve - Credit Card Not Exist (Case 322) - After Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(324);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Credit card does not exist\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"0123456789123456789\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"card",
+								"retrieve"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
