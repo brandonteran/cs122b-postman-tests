@@ -56,7 +56,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"9876543210987654321\",\r\n    \"firstName\": \"Test First\",\r\n    \"lastName\": \"Test Last\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
+							"raw": "{\r\n    \"id\": \"9876543210987654321\",\r\n    \"firstName\": \"Credit Card First Name\",\r\n    \"lastName\": \"Credit Card Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
 						},
 						"url": {
 							"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
@@ -105,9 +105,9 @@
 									"    pm.expect(jsonData.creditcard.id).not.eql(null);\r",
 									"    pm.expect(jsonData.creditcard.id).to.contain(\"9876543210987654321\");\r",
 									"    pm.expect(jsonData.creditcard.firstName).not.eql(null);\r",
-									"    pm.expect(jsonData.creditcard.firstName).to.contain(\"Test First\");\r",
+									"    pm.expect(jsonData.creditcard.firstName).to.contain(\"Credit Card First Name\");\r",
 									"    pm.expect(jsonData.creditcard.lastName).not.eql(null);\r",
-									"    pm.expect(jsonData.creditcard.lastName).to.contain(\"Test Last\");\r",
+									"    pm.expect(jsonData.creditcard.lastName).to.contain(\"Credit Card Last Name\");\r",
 									"    pm.expect(jsonData.creditcard.expiration).not.eql(null);\r",
 									"    pm.expect(jsonData.creditcard.expiration).to.eql(1643673600000);\r",
 									"    \r",
@@ -148,6 +148,73 @@
 								"billing",
 								"card",
 								"retrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert - Duplicate (Case 325) - After Insert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(325);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Duplicate insertion\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"9876543210987654321\",\r\n    \"firstName\": \"Duplicate Credit Card First Name\",\r\n    \"lastName\": \"Duplicate Credit Card Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"card",
+								"insert"
 							]
 						}
 					},
@@ -201,7 +268,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"9876543210987654321\",\r\n    \"firstName\": \"Updated Test First\",\r\n    \"lastName\": \"Updated Test Last\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
+							"raw": "{\r\n    \"id\": \"9876543210987654321\",\r\n    \"firstName\": \"Updated Credit Card First Name\",\r\n    \"lastName\": \"Updated Credit Card Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
 						},
 						"url": {
 							"raw": "http://{{host}}:{{port}}/api/billing/card/update",
@@ -249,9 +316,9 @@
 									"    pm.expect(jsonData.creditcard.id).not.eql(null);\r",
 									"    pm.expect(jsonData.creditcard.id).to.contain(\"9876543210987654321\");\r",
 									"    pm.expect(jsonData.creditcard.firstName).not.eql(null);\r",
-									"    pm.expect(jsonData.creditcard.firstName).to.contain(\"Updated Test First\");\r",
+									"    pm.expect(jsonData.creditcard.firstName).to.contain(\"Updated Credit Card First Name\");\r",
 									"    pm.expect(jsonData.creditcard.lastName).not.eql(null);\r",
-									"    pm.expect(jsonData.creditcard.lastName).to.contain(\"Updated Test Last\");\r",
+									"    pm.expect(jsonData.creditcard.lastName).to.contain(\"Updated Credit Card Last Name\");\r",
 									"    pm.expect(jsonData.creditcard.expiration).not.eql(null);\r",
 									"    pm.expect(jsonData.creditcard.expiration).to.eql(1643673600000);\r",
 									"    \r",
@@ -578,6 +645,73 @@
 								"billing",
 								"customer",
 								"retrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert - Duplicate (Case 333) - After Insert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(333);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Duplicate insertion\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"Duplicate Customer First Name\",\r\n    \"lastName\": \"Duplicate Customer Last Name\",\r\n    \"ccId\": \"9900028611992862486\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"customer",
+								"insert"
 							]
 						}
 					},
