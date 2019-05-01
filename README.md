@@ -1,15 +1,15 @@
 # cs122b-postman-tests
 
 
-# HW# DB Tests and HW# Tests
+## HW# DB Tests and HW# Tests
 
 HW# DB Tests fully assumes that the progrma passes all HW# Tests
 
-# DB Clean
+## HW# DB Clean
 
 Use DB Clean to clean up DB of any additions the tests make if they end early or fail
 
-# Summary
+## Summary
 
 Currently at 248 Tests
 
