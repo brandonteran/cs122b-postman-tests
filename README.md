@@ -21,7 +21,7 @@ Base Tests  | 252
 DB Tests  | 112
 
 **Tests Added:**
- Markup : - [x]  Credit Card
+- [x] Credit Card
 - [x] Customer
 - [x] Shopping Cart
 - [x] Order
