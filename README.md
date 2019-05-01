@@ -20,7 +20,7 @@ Test Type  | Count
 Base Tests  | 252
 DB Tests  | 112
 
-**Tests Added:**
+**Endpoints Tested**
 - [x] Credit Card
 - [x] Customer
 - [x] Shopping Cart
