@@ -2904,17 +2904,6 @@
 						}
 					],
 					"_postman_isSubFolder": true
-				},
-				{
-					"name": "DB Validation",
-					"item": [
-						{
-							"name": "(IP) Duplicate / Not Exist",
-							"item": [],
-							"_postman_isSubFolder": true
-						}
-					],
-					"_postman_isSubFolder": true
 				}
 			]
 		},
