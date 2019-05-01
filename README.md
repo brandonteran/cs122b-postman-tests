@@ -14,19 +14,18 @@ Always run HW DB Clean before running the tests to ensure the database is in the
 ## Stats
 
 **HW4**
+
 **Total Base Tests:** 252
+
 **Total DB Tests:** 112
 
-Total Base Tests | 252
-Total DB Tests   | 112
-
 **Tests Added:**
-1. Credit Card
-2. Customer
-3. Shopping Cart
-4. Order
+* Credit Card
+* Customer
+* Shopping Cart
+* Order
 
 **Tests To Be Added:**
-1. Multiple Item Shopping Cart
-2. Multiple item Order
-3. Quantity Valid
+* Multiple Item Shopping Cart
+* Multiple item Order
+* Quantity Valid
