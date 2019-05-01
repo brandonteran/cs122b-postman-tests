@@ -21,12 +21,10 @@ Base Tests  | 252
 DB Tests  | 112
 
 **Tests Added:**
-* Credit Card
-* Customer
-* Shopping Cart
-* Order
-
-**Tests To Be Added:**
-* Multiple Item Shopping Cart
-* Multiple item Order
-* Quantity Valid
+ Markup : - [x]  Credit Card
+- [x] Customer
+- [x] Shopping Cart
+- [x] Order
+- [ ] Multiple Item Shopping Cart
+- [ ] Multiple item Order
+- [ ] Quantity Valid
