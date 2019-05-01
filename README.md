@@ -1,9 +1,11 @@
 # CS 122B Postman Tests
 
 
-###### HW# DB Tests and HW# Tests
+###### HW DB Tests and HW Tests - Which to use first
 
-HW# DB Tests fully assumes that the progrma passes all HW# Tests
+Always run and make sure HW Base Tests fully works before testing HW DB Tests
+
+HW DB Tests fully assumes that the progrma passes all HW Base Tests
 
 ###### HW# DB Clean
 
