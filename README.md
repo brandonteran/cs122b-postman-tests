@@ -17,10 +17,8 @@ Always run HW DB Clean before running the tests to ensure the database is in the
 **Total Base Tests:** 252
 **Total DB Tests:** 112
 
-**HW4**
-------------- | -------------
 Total Base Tests | 252
-Total DB Tests  | 112
+Total DB Tests   | 112
 
 **Tests Added:**
 1. Credit Card
