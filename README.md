@@ -1,4 +1,4 @@
-# cs122b-postman-tests
+# CS 122B Postman Tests
 
 
 ###### HW# DB Tests and HW# Tests
