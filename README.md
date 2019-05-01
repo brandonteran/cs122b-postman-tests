@@ -7,9 +7,9 @@ Always run and make sure HW Base Tests fully works before testing HW DB Tests
 
 HW DB Tests fully assumes that the progrma passes all HW Base Tests
 
-###### HW# DB Clean
+###### HW DB Clean
 
-Use DB Clean to clean up DB of any additions the tests make if they end early or fail
+Always run HW DB Clean before running the tests to ensure the database is in the correct state
 
 ###### Summary
 
