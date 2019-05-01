@@ -432,6 +432,305 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Customer DB Test",
+			"item": [
+				{
+					"name": "Insert - Success (Case 3300)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3300);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Customer inserted successfully\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"Customer First Name\",\r\n    \"lastName\": \"Customer Last Name\",\r\n    \"ccId\": \"9900028611992862486\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"customer",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve - Success (Case 3330) - After Insert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3320);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Customer retrieved successfully\");\r",
+									"    \r",
+									"    \r",
+									"    pm.expect(jsonData.customer).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.email).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.email).to.contain(\"newCustomer@uci.edu\");\r",
+									"    pm.expect(jsonData.customer.firstName).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.firstName).to.contain(\"Customer First Name\");\r",
+									"    pm.expect(jsonData.customer.lastName).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.lastName).to.contain(\"Customer Last Name\");\r",
+									"    pm.expect(jsonData.customer.ccId).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.ccId).to.contain(\"9900028611992862486\");\r",
+									"    pm.expect(jsonData.customer.address).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.address).to.eql(\"1234, Campus Dr., Irvine, CA, 92697\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/customer/retrieve",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"customer",
+								"retrieve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Success (Case 3310)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3310);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Customer updated successfully\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"Updated Customer First Name\",\r\n    \"lastName\": \"Updated Customer Last Name\",\r\n    \"ccId\": \"9900028611992862486\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"customer",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve - Success (Case 3230) - After Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(3320);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Customer retrieved successfully\");\r",
+									"    \r",
+									"    \r",
+									"    pm.expect(jsonData.customer).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.email).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.email).to.contain(\"newCustomer@uci.edu\");\r",
+									"    pm.expect(jsonData.customer.firstName).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.firstName).to.contain(\"Customer First Name\");\r",
+									"    pm.expect(jsonData.customer.lastName).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.lastName).to.contain(\"Customer Last Name\");\r",
+									"    pm.expect(jsonData.customer.ccId).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.ccId).to.contain(\"9900028611992862486\");\r",
+									"    pm.expect(jsonData.customer.address).not.eql(null);\r",
+									"    pm.expect(jsonData.customer.address).to.eql(\"1234, Campus Dr., Irvine, CA, 92697\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\"\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/customer/retrieve",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"customer",
+								"retrieve"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
