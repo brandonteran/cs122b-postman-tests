@@ -14,16 +14,16 @@ To add these to your Enviroment
 3. Create the Two Variables Listed Above and given them your Service port and host
 4. **Remember to select the enviroment when running the tests**
 
+## HW DB Clean
+
+**Always run HW DB Clean before running the tests to ensure the database is in the correct state**
 
 ## HW DB Tests and HW Tests - Which to use first
 
-Always run and make sure HW Base Tests fully works before testing HW DB Tests
+**Always run and make sure HW Base Tests fully works before testing HW DB Tests**
 
 HW DB Tests fully assumes that the progrma passes all HW Base Tests
 
-## HW DB Clean
-
-Always run HW DB Clean before running the tests to ensure the database is in the correct state
 
 ## Stats
 
