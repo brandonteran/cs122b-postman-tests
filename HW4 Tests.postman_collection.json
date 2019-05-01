@@ -1181,7 +1181,7 @@
 							"_postman_isSubFolder": true
 						},
 						{
-							"name": "Duplicate / Not Exist Copy",
+							"name": "Duplicate / Not Exist",
 							"item": [
 								{
 									"name": "Insert - Duplicate Insertion (Case 325)",
@@ -3056,7 +3056,7 @@
 									"response": []
 								},
 								{
-									"name": "Update - Invalid Credit card ID value (Case 322)",
+									"name": "Update - Invalid Credit card ID value (Case 331)",
 									"event": [
 										{
 											"listen": "test",
@@ -3680,7 +3680,7 @@
 							"_postman_isSubFolder": true
 						},
 						{
-							"name": "Duplicate / Not Exist Copy Copy",
+							"name": "Duplicate / Not Exist",
 							"item": [
 								{
 									"name": "Insert - Duplicate Insertion (Case 333)",
@@ -3817,7 +3817,7 @@
 									"response": []
 								},
 								{
-									"name": "Retrieve - Customer Not Exist  (Case 322)",
+									"name": "Retrieve - Customer Not Exist  (Case 332)",
 									"event": [
 										{
 											"listen": "test",
@@ -3893,7 +3893,434 @@
 		},
 		{
 			"name": "order",
-			"item": []
+			"item": [
+				{
+					"name": "order validation",
+					"item": [
+						{
+							"name": "JSON Parse",
+							"item": [
+								{
+									"name": "Place - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"email\": \"peteranteater@uci.edu\"\r\n}"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/order/place",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"order",
+												"place"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - JSON Parse (Case -3)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-3);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Parse Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "error{\r\n    \"email\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/order/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"order",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "JSON Mapping",
+							"item": [
+								{
+									"name": "Place - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/order/place",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"order",
+												"place"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/order/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"order",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Duplicate / Not Exist",
+							"item": [
+								{
+									"name": "Update - Customer Not Exist (Case 332)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(332);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Customer does not exist\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"notExistEmail@notreal.com\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/order/place",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"order",
+												"place"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Retrieve - Customer Not Exist  (Case 332)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 200\", () => {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(332);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"Customer does not exist\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\": \"notExistEmail@notreal.com\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/order/retrieve",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"order",
+												"retrieve"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
 		}
 	]
 }
