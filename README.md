@@ -1,5 +1,12 @@
 # CS 122B Postman Tests
 
+## Fixes
+
+Please Ensure that 9900028611992862486 from creditcards is not changed due to failing a test
+information should be:
+Alexander
+Coffer
+2023-01-21 (Expiration would be updated if service fails to recognize invalid entry)
 
 ## Enviroment
 
