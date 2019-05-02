@@ -21,6 +21,11 @@ To add these to your Enviroment
 3. Create the Two Variables Listed Above and given them your Service port and host
 4. **REMEMBER to select the enviroment when running the tests**
 
+## Running Tests
+
+**HW Tests:** For the most part these tests are runnable stand alone with no use of variables (other than port and host)
+**HW DB Tests:** These must be run in order with each folder being the scope of the tests, They are ordered in a way so that if one fails that rest may try to still continue but for the most part they do depend on the tests before them.
+
 ## HW DB Clean
 
 **ALWAYS run HW DB Clean before running the tests to ensure the database is in the correct state**
