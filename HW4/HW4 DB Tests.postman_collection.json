@@ -686,6 +686,140 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Insert - Quantity Invalid (Case 33) - [0]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(33);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Quantity has invalid value\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 0\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/cart/insert",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"cart",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert - Quantity Invalid (Case 33) - [-1]",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has a body in json format\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains an message\", () => {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.resultCode).eql(33);\r",
+									"\r",
+									"    pm.expect(jsonData.message).not.eql(null);\r",
+									"    pm.expect(jsonData.message).to.contain(\"Quantity has invalid value\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n   \"email\": \"adah.glen.232@facebook.com\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": -1\r\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/api/billing/cart/insert",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"billing",
+								"cart",
+								"insert"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
