@@ -12,79 +12,6 @@
 					"name": "Model Validation",
 					"item": [
 						{
-							"name": "Expiration Value Invalid",
-							"item": [
-								{
-									"name": "Update - Invalid Expiration value (Case 323)",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
-												"exec": [
-													"\r",
-													"pm.test(\"Status code is 200\", () => {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response has a body in json format\", () => {\r",
-													"    pm.response.to.be.withBody;\r",
-													"    pm.response.to.be.json;\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response contains an message\", () => {\r",
-													"    let jsonData = pm.response.json();\r",
-													"    pm.expect(jsonData.resultCode).eql(323);\r",
-													"\r",
-													"    pm.expect(jsonData.message).not.eql(null);\r",
-													"    pm.expect(jsonData.message).to.contain(\"expiration has invalid value\");\r",
-													"    \r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response time is less than 200ms\", function () {\r",
-													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"id\": \"9900028611992862486\",\r\n    \"firstName\": \"my New First Name\",\r\n    \"lastName\": \"my New Last Name\",\r\n    \"expiration\": \"2000-12-31\"\r\n}"
-										},
-										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
-											"protocol": "http",
-											"host": [
-												"{{host}}"
-											],
-											"port": "{{port}}",
-											"path": [
-												"api",
-												"billing",
-												"card",
-												"update"
-											]
-										}
-									},
-									"response": []
-								}
-							],
-							"_postman_isSubFolder": true
-						},
-						{
 							"name": "Credit card ID Value",
 							"item": [
 								{
@@ -2831,76 +2758,76 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Place - JSON Mapping (Case -2)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
+												"exec": [
+													"\r",
+													"pm.test(\"Status code is 400\", () => {\r",
+													"    pm.response.to.have.status(400);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response has a body in json format\", () => {\r",
+													"    pm.response.to.be.withBody;\r",
+													"    pm.response.to.be.json;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response contains an message\", () => {\r",
+													"    let jsonData = pm.response.json();\r",
+													"    pm.expect(jsonData.resultCode).eql(-2);\r",
+													"\r",
+													"    pm.expect(jsonData.message).not.eql(null);\r",
+													"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
+													"    \r",
+													"});\r",
+													"\r",
+													"pm.test(\"Response time is less than 200ms\", function () {\r",
+													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+													"});\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
+										},
+										"url": {
+											"raw": "http://{{host}}:{{port}}/api/billing/order/place",
+											"protocol": "http",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"billing",
+												"order",
+												"place"
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"_postman_isSubFolder": true
-						},
-						{
-							"name": "Place - JSON Mapping (Case -2)",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
-										"exec": [
-											"\r",
-											"pm.test(\"Status code is 400\", () => {\r",
-											"    pm.response.to.have.status(400);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response has a body in json format\", () => {\r",
-											"    pm.response.to.be.withBody;\r",
-											"    pm.response.to.be.json;\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response contains an message\", () => {\r",
-											"    let jsonData = pm.response.json();\r",
-											"    pm.expect(jsonData.resultCode).eql(-2);\r",
-											"\r",
-											"    pm.expect(jsonData.message).not.eql(null);\r",
-											"    pm.expect(jsonData.message).to.contain(\"JSON Mapping Exception\");\r",
-											"    \r",
-											"});\r",
-											"\r",
-											"pm.test(\"Response time is less than 200ms\", function () {\r",
-											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-											"});\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
-								},
-								"url": {
-									"raw": "http://{{host}}:{{port}}/api/billing/order/place",
-									"protocol": "http",
-									"host": [
-										"{{host}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"billing",
-										"order",
-										"place"
-									]
-								}
-							},
-							"response": []
 						}
 					],
 					"_postman_isSubFolder": true
