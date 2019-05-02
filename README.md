@@ -41,10 +41,10 @@ HW DB Tests fully assumes that the progrma passes all HW Base Tests
 
 **HW4**
 
-Test Type  | Count
-------------- | -------------
-Base Tests  | 252
-DB Tests  | 112
+Test Type  | Test Cases | Tests
+------------- | ------------- | -------------
+Base Tests  | 61 | 244 
+DB Tests  | 33 + 7 | 132 + 28
 
 **Endpoints Tested**
 ###### **Credit Card**
@@ -76,7 +76,7 @@ DB Tests  | 112
 - [X] None Exist Retrieve
 - [X] Quantity Valid
 - [X] Single Item Shopping Cart
-- [ ] Multiple Item Shopping Cart
+- [X] Multiple Item Shopping Cart
 
 ###### **Order**
 - [X] JSON Parse
@@ -85,4 +85,4 @@ DB Tests  | 112
 - [X] Customer None Exist Retrieve
 - [X] Cart None Exist Retrieve
 - [X] Single item Order
-- [ ] Multiple item Order
+- [X] Multiple item Order
