@@ -2131,7 +2131,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "error{\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 2\r\n}"
+											"raw": "error{\r\n   \"email\": \"newCustomer@uci.edu\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 2\r\n}"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/cart/insert",
@@ -2198,7 +2198,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "error{  \r\n   \"email\": \"peteranteater@uci.edu\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 5\r\n}\r\n"
+											"raw": "error{  \r\n   \"email\": \"newCustomer@uci.edu\",\r\n   \"movieId\": \"tt0308514\",\r\n   \"quantity\": 5\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/cart/update",
@@ -2265,7 +2265,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "error{  \r\n   \"email\": \"peteranteater@uci.edu\",\r\n   \"movieId\": \"tt0308514\"\r\n}\r\n"
+											"raw": "error{  \r\n   \"email\": \"newCustomer@uci.edu\",\r\n   \"movieId\": \"tt0308514\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/cart/delete",
@@ -2332,7 +2332,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "error{  \r\n   \"email\": \"peteranteater@uci.edu\"\r\n}\r\n"
+											"raw": "error{  \r\n   \"email\": \"newCustomer@uci.edu\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
@@ -2399,7 +2399,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "error{  \r\n   \"email\": \"peteranteater@uci.edu\"\r\n}\r\n"
+											"raw": "error{  \r\n   \"email\": \"newCustomer@uci.edu\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/cart/clear",
@@ -2673,7 +2673,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n   \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
+											"raw": "{\r\n   \"wrongAttribute\": \"newCustomer@uci.edu\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/cart/retrieve",
@@ -2740,7 +2740,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{  \r\n   \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
+											"raw": "{  \r\n   \"wrongAttribute\": \"newCustomer@uci.edu\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/cart/clear",
@@ -2807,7 +2807,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"wrongAttribute\": \"peteranteater@uci.edu\"\r\n}\r\n"
+											"raw": "{\r\n    \"wrongAttribute\": \"newCustomer@uci.edu\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/order/place",
@@ -2891,7 +2891,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"A999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+											"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"A999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
@@ -2958,7 +2958,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"A999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+											"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"A999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
@@ -3031,7 +3031,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"0123456789123456789\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+											"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"0123456789123456789\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
@@ -3098,7 +3098,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"0123456789123456789\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+											"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"0123456789123456789\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
@@ -3171,7 +3171,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+											"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
@@ -3238,7 +3238,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+											"raw": "{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
@@ -3311,7 +3311,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "error{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"9999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+											"raw": "error{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"9999888877776666123\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
@@ -3378,7 +3378,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "error{\r\n    \"email\": \"peteranteater@uci.edu\",\r\n    \"firstName\": \"customer New First Name\",\r\n    \"lastName\": \"customer New Last Name\",\r\n    \"ccId\": \"1111222233334444789\",\r\n    \"address\": \"6789, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
+											"raw": "error{\r\n    \"email\": \"newCustomer@uci.edu\",\r\n    \"firstName\": \"customer New First Name\",\r\n    \"lastName\": \"customer New Last Name\",\r\n    \"ccId\": \"1111222233334444789\",\r\n    \"address\": \"6789, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/update",
@@ -3445,7 +3445,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "error{\r\n    \"email\": \"peteranteater@uci.edu\"\r\n}"
+											"raw": "error{\r\n    \"email\": \"newCustomer@uci.edu\"\r\n}"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/retrieve",
@@ -3652,7 +3652,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n    \"wrongAttribue\": \"peteranteater@uci.edu\"\r\n}\r\n"
+											"raw": "{\r\n    \"wrongAttribue\": \"newCustomer@uci.edu\"\r\n}\r\n"
 										},
 										"url": {
 											"raw": "http://{{host}}:{{port}}/api/billing/customer/retrieve",
@@ -3683,73 +3683,6 @@
 						{
 							"name": "Duplicate / Not Exist",
 							"item": [
-								{
-									"name": "Insert - Duplicate Insertion (Case 333)",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "2cc025ea-2005-4656-b499-7ba963edf7ef",
-												"exec": [
-													"\r",
-													"pm.test(\"Status code is 200\", () => {\r",
-													"    pm.response.to.have.status(200);\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response has a body in json format\", () => {\r",
-													"    pm.response.to.be.withBody;\r",
-													"    pm.response.to.be.json;\r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response contains an message\", () => {\r",
-													"    let jsonData = pm.response.json();\r",
-													"    pm.expect(jsonData.resultCode).eql(333);\r",
-													"\r",
-													"    pm.expect(jsonData.message).not.eql(null);\r",
-													"    pm.expect(jsonData.message).to.contain(\"Duplicate insertion\");\r",
-													"    \r",
-													"});\r",
-													"\r",
-													"pm.test(\"Response time is less than 200ms\", function () {\r",
-													"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-													"});\r",
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\r\n    \"email\": \"adah.glen.232@facebook.com\",\r\n    \"firstName\": \"customer First Name\",\r\n    \"lastName\": \"customer Last Name\",\r\n    \"ccId\": \"9900028611992862486\",\r\n    \"address\": \"1234, Campus Dr., Irvine, CA, 92697\"\r\n}\r\n"
-										},
-										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/customer/insert",
-											"protocol": "http",
-											"host": [
-												"{{host}}"
-											],
-											"port": "{{port}}",
-											"path": [
-												"api",
-												"billing",
-												"customer",
-												"insert"
-											]
-										}
-									},
-									"response": []
-								},
 								{
 									"name": "Update - Customer Not Exist (Case 332)",
 									"event": [
