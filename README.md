@@ -47,10 +47,42 @@ Base Tests  | 252
 DB Tests  | 112
 
 **Endpoints Tested**
-- [x] Credit Card
-- [x] Customer
-- [x] Shopping Cart
-- [x] Order
+- [x] **Credit Card**
+- [X] CC ID Value
+- [X] CC ID Length
+- [X] JSON Parse
+- [X] JSON Mapping
+- [X] Duplicate Insert
+- [X] None Exist Update
+- [X] None Exist Retrieve
+
+- [x] **Customer**
+- [X] CC ID Value
+- [X] CC ID Length
+- [X] CC ID None Exist 
+- [X] JSON Parse
+- [X] JSON Mapping
+- [X] Duplicate Insert
+- [X] None Exist Update
+- [X] None Exist Retrieve
+
+- [ ] **Shopping Cart**
+- [X] Email Format
+- [X] Email Length
+- [X] JSON Parse
+- [X] JSON Mapping
+- [X] Duplicate Insert
+- [X] None Exist Update
+- [X] None Exist Retrieve
+- [X] Quantity Valid
+- [X] Single Item Shopping Cart
 - [ ] Multiple Item Shopping Cart
+
+- [ ] **Order**
+- [X] JSON Parse
+- [X] JSON Mapping
+- [X] Customer None Exist Update
+- [X] Customer None Exist Retrieve
+- [X] Cart None Exist Retrieve
+- [X] Single item Order
 - [ ] Multiple item Order
-- [ ] Quantity Valid
