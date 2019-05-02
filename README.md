@@ -44,7 +44,7 @@ HW DB Tests fully assumes that the progrma passes all HW Base Tests
 Test Type  | Test Cases | Tests
 ------------- | ------------- | -------------
 Base Tests  | 61 | 244 
-DB Tests  | 33 + 7 | 132 + 28
+DB Tests  | 33, 7 | 132, 28
 
 **Endpoints Tested**
 ###### **Credit Card**
