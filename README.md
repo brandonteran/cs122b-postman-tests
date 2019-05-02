@@ -47,7 +47,7 @@ Base Tests  | 252
 DB Tests  | 112
 
 **Endpoints Tested**
-- [x] **Credit Card**
+###### **Credit Card**
 - [X] CC ID Value
 - [X] CC ID Length
 - [X] JSON Parse
@@ -56,7 +56,7 @@ DB Tests  | 112
 - [X] None Exist Update
 - [X] None Exist Retrieve
 
-- [x] **Customer**
+###### **Customer**
 - [X] CC ID Value
 - [X] CC ID Length
 - [X] CC ID None Exist 
@@ -66,7 +66,7 @@ DB Tests  | 112
 - [X] None Exist Update
 - [X] None Exist Retrieve
 
-- [ ] **Shopping Cart**
+###### **Shopping Cart**
 - [X] Email Format
 - [X] Email Length
 - [X] JSON Parse
@@ -78,7 +78,7 @@ DB Tests  | 112
 - [X] Single Item Shopping Cart
 - [ ] Multiple Item Shopping Cart
 
-- [ ] **Order**
+###### **Order**
 - [X] JSON Parse
 - [X] JSON Mapping
 - [X] Customer None Exist Update
