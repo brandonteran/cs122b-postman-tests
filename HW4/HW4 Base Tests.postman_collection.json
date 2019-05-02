@@ -65,7 +65,7 @@
 											"raw": "{\r\n    \"id\": \"A999888877776666123\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/insert",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -74,7 +74,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"insert"
 											]
 										}
@@ -132,7 +132,7 @@
 											"raw": "{\r\n    \"id\": \"A999888877776666123\",\r\n    \"firstName\": \"my New First Name\",\r\n    \"lastName\": \"my New Last Name\",\r\n    \"expiration\": \"2024-12-31\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/update",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -141,7 +141,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"update"
 											]
 										}
@@ -199,7 +199,7 @@
 											"raw": "{\r\n    \"id\": \"A999888877776666123\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/delete",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -208,7 +208,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"delete"
 											]
 										}
@@ -266,7 +266,7 @@
 											"raw": "{\r\n    \"id\": \"A999888877776666123\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/retrieve",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -275,7 +275,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"retrieve"
 											]
 										}
@@ -339,7 +339,7 @@
 											"raw": "{\r\n    \"id\": \"999888877776666123\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/insert",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -348,7 +348,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"insert"
 											]
 										}
@@ -406,7 +406,7 @@
 											"raw": "{\r\n    \"id\": \"999888877776666123\",\r\n    \"firstName\": \"my New First Name\",\r\n    \"lastName\": \"my New Last Name\",\r\n    \"expiration\": \"2024-12-31\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/update",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -415,7 +415,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"update"
 											]
 										}
@@ -473,7 +473,7 @@
 											"raw": "{\r\n    \"id\": \"999888877776666123\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/delete",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -482,7 +482,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"delete"
 											]
 										}
@@ -540,7 +540,7 @@
 											"raw": "{\r\n    \"id\": \"999888877776666123\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/retrieve",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -549,7 +549,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"retrieve"
 											]
 										}
@@ -613,7 +613,7 @@
 											"raw": "error{\r\n    \"id\": \"9999888877776666123\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}\r\n"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/insert",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -622,7 +622,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"insert"
 											]
 										}
@@ -680,7 +680,7 @@
 											"raw": "error{\r\n    \"id\": \"9999888877776666123\",\r\n    \"firstName\": \"my New First Name\",\r\n    \"lastName\": \"my New Last Name\",\r\n    \"expiration\": \"2024-12-31\"\r\n}\r\n\r\n"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/update",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -689,7 +689,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"update"
 											]
 										}
@@ -747,7 +747,7 @@
 											"raw": "error{\r\n    \"id\": \"9999888877776666123\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/delete",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -756,7 +756,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"delete"
 											]
 										}
@@ -814,7 +814,7 @@
 											"raw": "error{\r\n    \"id\": \"9999888877776666123\"\r\n}\r\n"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/retrieve",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -823,7 +823,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"retrieve"
 											]
 										}
@@ -887,7 +887,7 @@
 											"raw": "{\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}\r\n"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/insert",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -896,7 +896,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"insert"
 											]
 										}
@@ -954,7 +954,7 @@
 											"raw": "{\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/update",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -963,7 +963,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"update"
 											]
 										}
@@ -1021,7 +1021,7 @@
 											"raw": "{\r\n    \"wrongAttribue\": \"9999888877776666123\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/delete",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -1030,7 +1030,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"delete"
 											]
 										}
@@ -1088,7 +1088,7 @@
 											"raw": "{\r\n    \"wrongAttribue\": \"9999888877776666123\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/retrieve",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -1097,7 +1097,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"retrieve"
 											]
 										}
@@ -1167,7 +1167,7 @@
 											"raw": "{\r\n    \"id\": \"9900028611992862486\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}\r\n"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/insert",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/insert",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -1176,7 +1176,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"insert"
 											]
 										}
@@ -1234,7 +1234,7 @@
 											"raw": "{\r\n    \"id\": \"0123456789123456789\",\r\n    \"firstName\": \"my First Name\",\r\n    \"lastName\": \"my Last Name\",\r\n    \"expiration\": \"2022-02-02\"\r\n}\r\n"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/update",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/update",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -1243,7 +1243,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"update"
 											]
 										}
@@ -1301,7 +1301,7 @@
 											"raw": "{\r\n    \"id\": \"0123456789123456789\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/delete",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/delete",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -1310,7 +1310,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"delete"
 											]
 										}
@@ -1368,7 +1368,7 @@
 											"raw": "{\r\n    \"id\": \"0123456789123456789\"\r\n}"
 										},
 										"url": {
-											"raw": "http://{{host}}:{{port}}/api/billing/card/retrieve",
+											"raw": "http://{{host}}:{{port}}/api/billing/creditcard/retrieve",
 											"protocol": "http",
 											"host": [
 												"{{host}}"
@@ -1377,7 +1377,7 @@
 											"path": [
 												"api",
 												"billing",
-												"card",
+												"creditcard",
 												"retrieve"
 											]
 										}
